@@ -13,8 +13,7 @@ authRoutes.post("/login", login);
 authRoutes.post("/register", register); 
 authRoutes.get("/profile", authMiddlewere, profile); 
 authRoutes.get("/admin/deshboard", authMiddlewere, roleMiddlewere('admin'),adminDeshboard);
-authRoutes.get("/student/deshboard", authMiddlewere, roleMiddlewere('student'),studentDeshboard);
-authRoutes.get("/student/deshboard", authMiddlewere, roleMiddlewere('admin'),studentDeshboard);
+authRoutes.get("/student/deshboard", authMiddlewere, roleMiddlewere('admin','student'),studentDeshboard);
 
 export default authRoutes
 
