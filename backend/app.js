@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";  
 import auth from "./routes/authRoutes.js"  
+import student from "./routes/studRoutes.js"
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.get("/", (req, res) => {
     res.send("api runnig...");
 });
 
-app.use("/api/auth", auth)
+app.use("/auth", auth)
+app.use("/students", student)
 export default app ; 
 
