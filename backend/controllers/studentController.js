@@ -39,4 +39,23 @@ const getstudentByid = async (req, res) => {
     }
 }
 
-export { addStudent, getStudent }
+const updateStudent = async (req, res) => {
+    try {
+        const studentData = await student.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.status(200).json({ message: "Student updated successfully", student: studentData });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+}
+
+const deleteStudent = async (req, res) => {
+    try {
+        const studentData = await student.findByIdAndDelete(req.params.id);
+        res.status(200).json({ message: "Student deleted successfully", student: studentData });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+}
+export { addStudent, getStudent , getstudentByid , updateStudent , deleteStudent}
