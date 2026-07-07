@@ -7,7 +7,8 @@ import {
         getstudentByid, 
         updateStudent , 
         deleteStudent,
-        studentProfile} from "../controllers/studentController.js";
+        studentProfile,
+        changePassword} from "../controllers/studentController.js";
 
 
 
@@ -19,7 +20,7 @@ studRoutes.get("/get/:id", getstudentByid, authMiddlewere, roleMiddlewere('admin
 studRoutes.put("/update/:id", authMiddlewere, roleMiddlewere('admin') ,updateStudent);
 studRoutes.delete("/delete/:id", authMiddlewere, roleMiddlewere('admin') ,deleteStudent);
 studRoutes.get("/profile", authMiddlewere, studentProfile);
-
+studRoutes.put("/changepass/:id", authMiddlewere, changePassword, roleMiddlewere('student') );
 
 export default studRoutes   
 
